@@ -24,5 +24,22 @@ namespace WhoWantsToBeAMillioner
         {
             InitializeComponent();
         }
+
+        private void Play_Click(object sender, RoutedEventArgs e)
+        {
+            //    NavigationService Service = NavigationService.GetNavigationService(this);
+            //    Service.Navigate(new Uri("GamePage.xaml", UriKind.Relative));
+
+            GamePage GP = new GamePage();
+            GP.Show();
+            this.Hide();
+
+
+        }
+
+        private void Quit_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
     }
 }
