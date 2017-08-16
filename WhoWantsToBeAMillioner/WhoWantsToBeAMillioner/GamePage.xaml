@@ -47,7 +47,7 @@
     </Window.Background>
 
     <StackPanel>
-        <Button x:Name="Status" Background="Gray" Content="Status" HorizontalAlignment="Right" Height="30"/>
+        <Button Style="{StaticResource StatusStyle}" x:Name="Status" Background="Gray" Content="Status" HorizontalAlignment="Right" Height="30"/>
         <Image Grid.Row="0" Source="Images\Wiki-background.png" Margin="346,52,346,437" Height="250" Width="300" Panel.ZIndex="1"></Image>
     </StackPanel>
 </Window>
