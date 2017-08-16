@@ -23,5 +23,17 @@ namespace WhoWantsToBeAMillioner
         {
             InitializeComponent();
         }
+
+        private void Status_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Quit_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow MW = new MainWindow();
+            MW.Show();
+            this.Hide();
+        }
     }
 }

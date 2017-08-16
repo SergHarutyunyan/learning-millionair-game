@@ -9,45 +9,83 @@
 
     <Window.Resources>
         <Style TargetType="{x:Type Button}"  x:Key="StatusStyle">
-            <Setter Property="Background" Value="#373737" />
+            <Setter Property="Background" Value="Transparent" />
             <Setter Property="Foreground" Value="White" />
             <Setter Property="FontSize" Value="15" />
             <Setter Property="FontFamily" Value="./#Segoe UI" />
             <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="Margin" Value="0,2,1,0"/>
 
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border CornerRadius="4" Background="{TemplateBinding Background}">
                             <Grid>
-                                <Path x:Name="PathIcon" Width="15" Height="25" Stretch="Fill" Fill="#4C87B3" HorizontalAlignment="Left" Margin="17,0,0,0" Data="F1 M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z "/>
-                                <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+                                <Path x:Name="PathIcon" Width="30" Height="25" Stretch="Fill" Fill="CornflowerBlue" HorizontalAlignment="Left" Margin="2,0,3,3" Data="F1 M 25.0833,18.1667L 50.6665,38.6043L 50.6665,40.7918L 30.0833,53.8333L 30.0833,22.1667 Z "/>
+                                <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" />
                             </Grid>
                         </Border>
 
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#E59400" />
-                                <Setter Property="Foreground" Value="White" />
+                                <Setter Property="Foreground" Value="CadetBlue" />
                                 <Setter TargetName="PathIcon" Property="Fill" Value="Black" />
                             </Trigger>
 
-                            <Trigger Property="IsPressed" Value="True">
-                                <Setter Property="Background" Value="OrangeRed" />
-                                <Setter Property="Foreground" Value="White" />
-                            </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style TargetType="{x:Type Button}" x:Key="WindowButtonStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ButtonBase}">
+                        <Border
+                            CornerRadius="4"
+                            x:Name="Chrome"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Margin="0"
+                            Background="{TemplateBinding Background}"
+                            SnapsToDevicePixels="True">
+                            <ContentPresenter
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Content="{TemplateBinding Content}"
+                                ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Margin="{TemplateBinding Padding}"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontFamily" Value="Webdings"/>
+            <Setter Property="FontSize" Value="13.333" />
+            <Setter Property="Foreground" Value="CornflowerBlue" />
+            <Setter Property="Margin" Value="0,2,1,0"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Black" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
     </Window.Resources>
     <Window.Background>
         <ImageBrush ImageSource="C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\WhoWantsToBeAMillioner\Images\images.jfif"/>
     </Window.Background>
 
     <StackPanel>
-        <Button Style="{StaticResource StatusStyle}" x:Name="Status" Background="Gray" Content="Status" HorizontalAlignment="Right" Height="30"/>
-        <Image Grid.Row="0" Source="Images\Wiki-background.png" Margin="346,52,346,437" Height="250" Width="300" Panel.ZIndex="1"></Image>
+        <Grid>
+            <Button Style="{StaticResource StatusStyle}"       Click="Status_Click"   x:Name="Status" Content="" HorizontalAlignment="Right" Height="33" Foreground="Black" Width="35"></Button>
+            <Button Style="{StaticResource WindowButtonStyle}" Click="Quit_Click"     x:Name="Quit" Content="r" HorizontalAlignment="Left" Height="33" Width="35" FontSize="28" />
+        </Grid>
+        <Image Grid.Row="0" Source="Images\Wiki-background.png" Margin="346,20,346,437" Height="250" Width="300" Panel.ZIndex="1"></Image>
+        
+        
     </StackPanel>
 </Window>
