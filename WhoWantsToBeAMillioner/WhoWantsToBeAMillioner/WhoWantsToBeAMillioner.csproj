@@ -102,6 +102,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\images.jfif" />
+    <Resource Include="Images\Status_3.png" />
+    <Resource Include="Images\Status.png" />
     <Resource Include="Images\Wiki-background.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

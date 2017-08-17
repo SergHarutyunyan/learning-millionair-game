@@ -9,27 +9,28 @@
 
     <Window.Resources>
         <Style TargetType="{x:Type Button}"  x:Key="StatusStyle">
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="FontSize" Value="15" />
-            <Setter Property="FontFamily" Value="./#Segoe UI" />
-            <Setter Property="SnapsToDevicePixels" Value="True" />
-            <Setter Property="Margin" Value="0,2,1,0"/>
-
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border CornerRadius="4" Background="{TemplateBinding Background}">
+                            <Border.ContextMenu>
+                                <ContextMenu x:Name="cmenu">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition ></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                    </Grid>
+                                </ContextMenu>
+                            </Border.ContextMenu>
                             <Grid>
-                                <Path x:Name="PathIcon" Width="30" Height="25" Stretch="Fill" Fill="CornflowerBlue" HorizontalAlignment="Left" Margin="2,0,3,3" Data="F1 M 25.0833,18.1667L 50.6665,38.6043L 50.6665,40.7918L 30.0833,53.8333L 30.0833,22.1667 Z "/>
                                 <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" />
                             </Grid>
                         </Border>
 
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Foreground" Value="CadetBlue" />
-                                <Setter TargetName="PathIcon" Property="Fill" Value="Black" />
+                                <Setter  Property="Background" Value="Aqua" />
+                                <Setter Property="ContextMenu.IsOpen" Value="True" TargetName="cmenu"/>
                             </Trigger>
 
                         </ControlTemplate.Triggers>
@@ -73,19 +74,79 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        
+
+        <Style TargetType="TextBox" x:Key="QuestionTextbox">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border CornerRadius="60" Background="Black" BorderBrush="LightBlue" BorderThickness="3,3,3,3" >
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="Button" x:Key="QuestionButton">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="60" Background="Black" BorderBrush="LightBlue" BorderThickness="3,3,3,3" >
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Window.Resources>
     <Window.Background>
         <ImageBrush ImageSource="C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\WhoWantsToBeAMillioner\Images\images.jfif"/>
     </Window.Background>
 
     <StackPanel>
-        <Grid>
-            <Button Style="{StaticResource StatusStyle}"       Click="Status_Click"   x:Name="Status" Content="" HorizontalAlignment="Right" Height="33" Foreground="Black" Width="35"></Button>
-            <Button Style="{StaticResource WindowButtonStyle}" Click="Quit_Click"     x:Name="Quit" Content="r" HorizontalAlignment="Left" Height="33" Width="35" FontSize="28" />
+
+
+        <Grid Height="770">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="274*"/>
+                <RowDefinition Height="180*"/>
+                <RowDefinition Height="264*"/>
+            </Grid.RowDefinitions>
+
+            <Button Grid.Row="0" Style="{StaticResource StatusStyle}" Click="Status_Click"   x:Name="Status" Content="" HorizontalAlignment="Right" Foreground="Black" Width="35" Margin="0,1">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images\Status_3.png"/>
+                </Button.Background>
+            </Button>
+            <Button  Grid.Row="0" Style="{StaticResource WindowButtonStyle}" Click="Quit_Click"     x:Name="Quit" Content="r" HorizontalAlignment="Left" Width="35" FontSize="28" Margin="0,2,0,0" />
+            <Image Source="Images\Wiki-background.png"  Width="400" Height="280" Panel.ZIndex="1" Margin="296,14,296,26" Grid.RowSpan="2"/>
+            <TextBox Style="{StaticResource QuestionTextbox}" Grid.Row="2" Width="700" Height="120" Background="black" FontSize="15" Margin="146,20,146,44"></TextBox>
+
+            <Grid Grid.Row="3" Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Button Style="{StaticResource QuestionButton}" Grid.Column="0" Grid.Row="0" Width="350" Margin="0,0,0,10" Content="Step" Background="#FF2BADDE" FontSize="16" HorizontalAlignment="Center" />
+                <Button Style="{StaticResource QuestionButton}" Grid.Column="1" Grid.Row="0" Width="350" Margin="0,0,0,10" Content="Step 2" Background="#FF777A7C" FontSize="16" HorizontalAlignment="Center" />
+                <Button Style="{StaticResource QuestionButton}" Grid.Column="0" Grid.Row="1" Width="350" Margin="0,5,0,5" Content="Step 3" Background="#FF777A7C" FontSize="16" HorizontalAlignment="Center" />
+                <Button Style="{StaticResource QuestionButton}" Grid.Column="1" Grid.Row="1" Width="350" Margin="0,5,0,5" Content="Step 4" Background="#FF777A7C" FontSize="16" HorizontalAlignment="Center" />
+            </Grid>
+
         </Grid>
-        <Image Grid.Row="0" Source="Images\Wiki-background.png" Margin="346,20,346,437" Height="250" Width="300" Panel.ZIndex="1"></Image>
-        
-        
+
+
+
+
+
     </StackPanel>
 </Window>
