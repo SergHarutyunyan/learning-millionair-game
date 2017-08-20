@@ -106,7 +106,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\images.jfif" />
@@ -115,6 +117,10 @@
     <Resource Include="Images\Wiki-background.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessObjectModels\BusinessObjectModels.csproj">
+      <Project>{9f51aa81-6198-40d8-bd47-05d44ea229a9}</Project>
+      <Name>BusinessObjectModels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{a7615f75-e55f-4791-b5e1-88badafc4469}</Project>
       <Name>DataAccess</Name>

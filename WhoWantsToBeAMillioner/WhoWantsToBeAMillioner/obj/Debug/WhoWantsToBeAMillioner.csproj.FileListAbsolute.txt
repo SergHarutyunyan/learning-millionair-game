@@ -15,9 +15,12 @@ C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\Wh
 C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\WhoWantsToBeAMillioner\obj\Debug\GamePage.g.cs
 C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\WhoWantsToBeAMillioner\obj\Debug\GamePage.baml
 C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\WhoWantsToBeAMillioner\obj\Debug\WhoWantsToBeAMillioner.csprojResolveAssemblyReference.cache
-C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\WhoWantsToBeAMillioner\bin\Debug\DataBaseAccess.dll
 C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\WhoWantsToBeAMillioner\bin\Debug\EntityFramework.dll
 C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\WhoWantsToBeAMillioner\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\WhoWantsToBeAMillioner\bin\Debug\DataBaseAccess.pdb
 C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\WhoWantsToBeAMillioner\bin\Debug\EntityFramework.xml
 C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\WhoWantsToBeAMillioner\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\WhoWantsToBeAMillioner\bin\Debug\BusinessObjectModels.dll
+C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\WhoWantsToBeAMillioner\bin\Debug\DataAccess.dll
+C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\WhoWantsToBeAMillioner\bin\Debug\BusinessObjectModels.pdb
+C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\WhoWantsToBeAMillioner\bin\Debug\DataAccess.pdb
+C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\WhoWantsToBeAMillioner\bin\Debug\DataAccess.dll.config

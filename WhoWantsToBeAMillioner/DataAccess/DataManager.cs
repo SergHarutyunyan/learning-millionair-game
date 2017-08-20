@@ -14,12 +14,12 @@ namespace DataAccess
 {
     public class DataManager : DbContext
     {
-        static string engConnectionString = ConfigurationManager.ConnectionStrings["EngWordManager"].ConnectionString;
+        static string ConnString = ConfigurationManager.ConnectionStrings["DataManager"].ConnectionString;
+        static List<int> categoryList = new List<int>();
 
-
-        public void GetQuestions(Question q)
+        public void GetNextQuestion(int category)
         {
-            using(SqlConnection connection = new SqlConnection(engConnectionString))
+            using (SqlConnection connection = new SqlConnection(ConnString))
             {
                 SqlCommand command = new SqlCommand("GetQuestion", connection);
                 command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -27,17 +27,49 @@ namespace DataAccess
 
                 SqlParameter firstParameter = new SqlParameter();
                 firstParameter.ParameterName = "@category";
-                firstParameter.Value = q.category;
+                firstParameter.Value = category;
                 command.Parameters.Add(firstParameter);
 
                 connection.Open();
                 SqlDataReader Rdr = command.ExecuteReader();
 
-                while(Rdr.Read())
+                if (Rdr.Read())
                 {
-
+                    Questions.Id = Rdr.GetInt32(0);
+                    Questions.Question = Rdr.GetString(1);
+                    Questions.VariantA = Rdr.GetString(2);
+                    Questions.VariantB = Rdr.GetString(3);
+                    Questions.VariantC = Rdr.GetString(4);
+                    Questions.VariantD = Rdr.GetString(5);
+                    Questions.Answer = Rdr.GetByte(6);
                 }
+
             }
         }
+
+
+        public List<int> getCategoryList()
+        {
+            using (SqlConnection connection = new SqlConnection(ConnString))
+            {
+                SqlCommand command = new SqlCommand("GetCategoryList", connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                connection.Open();
+                SqlDataReader Rdr = command.ExecuteReader();
+
+                while (Rdr.Read())
+                {
+                    categoryList.Add(Rdr.GetInt32(0));
+                }
+
+                return categoryList;
+
+            }
+        }
+
+
+
+
     }
 }

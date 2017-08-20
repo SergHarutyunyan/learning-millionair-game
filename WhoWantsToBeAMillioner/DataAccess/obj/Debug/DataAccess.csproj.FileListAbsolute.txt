@@ -1,0 +1,12 @@
+C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\DataAccess\bin\Debug\BusinessObjectModels.dll
+C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\DataAccess\bin\Debug\BusinessObjectModels.pdb
+C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\DataAccess\obj\Debug\DataAccess.pdb

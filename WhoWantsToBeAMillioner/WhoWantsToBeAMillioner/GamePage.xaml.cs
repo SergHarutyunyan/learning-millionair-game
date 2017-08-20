@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DataAccess;
+using BusinessObjectModels;
 
 namespace WhoWantsToBeAMillioner
 {
@@ -19,10 +21,15 @@ namespace WhoWantsToBeAMillioner
     /// </summary>
     public partial class GamePage : Window
     {
+
+        DataManager dataManager = new DataManager();
+
         public GamePage()
         {
             InitializeComponent();
         }
+
+
 
         private void Status_Click(object sender, RoutedEventArgs e)
         {
@@ -34,6 +41,41 @@ namespace WhoWantsToBeAMillioner
             MainWindow MW = new MainWindow();
             MW.Show();
             this.Hide();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<int> categoryList = dataManager.getCategoryList();
+
+            dataManager.GetNextQuestion(categoryList.FirstOrDefault());
+
+            QuestionTexBox.Text = Questions.Question;
+            A.Content = Questions.VariantA;
+            B.Content = Questions.VariantB;
+            C.Content = Questions.VariantC;
+            D.Content = Questions.VariantD;
+
+        }
+
+
+        private void A_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void B_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void C_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void D_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
