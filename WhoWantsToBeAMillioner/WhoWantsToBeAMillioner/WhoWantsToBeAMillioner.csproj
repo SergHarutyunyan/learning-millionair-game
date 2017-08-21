@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -111,7 +112,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\images.jfif" />
+    <Resource Include="Images\images.JPEG" />
+    <Content Include="Mp3\Correct.mp3" />
+    <Content Include="Mp3\Loosing.mp3" />
+    <Content Include="Mp3\millionaire.mp3" />
+    <Content Include="Mp3\Think.mp3" />
     <Resource Include="Images\Status_3.png" />
     <Resource Include="Images\Status.png" />
     <Resource Include="Images\Wiki-background.png" />
@@ -125,6 +130,9 @@
       <Project>{a7615f75-e55f-4791-b5e1-88badafc4469}</Project>
       <Name>DataAccess</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="System\Windows\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

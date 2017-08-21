@@ -2,3 +2,4 @@ C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\Bu
 C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\BusinessObjectModels\bin\Debug\BusinessObjectModels.pdb
 C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\BusinessObjectModels\obj\Debug\BusinessObjectModels.dll
 C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\BusinessObjectModels\obj\Debug\BusinessObjectModels.pdb
+C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\BusinessObjectModels\obj\Debug\BusinessObjectModels.csprojResolveAssemblyReference.cache

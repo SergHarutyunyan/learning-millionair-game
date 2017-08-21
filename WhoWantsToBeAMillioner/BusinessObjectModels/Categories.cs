@@ -8,16 +8,13 @@ using System.Threading.Tasks;
 
 namespace BusinessObjectModels
 {
-    class Categories
-    {
         [Table("Category")]
-        public class Questions
+        public class Categories
         {
             [Key]
             public int Id { get; set; }
             public int Price { get; set; }
-            public int IsPrimary { get; set; }
+            public bool IsPrimary { get; set; }
       
-        }
-    }
+        }    
 }

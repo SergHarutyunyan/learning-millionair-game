@@ -8,6 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/images.jfif")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("mp3/correct.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("mp3/loosing.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("mp3/millionaire.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("mp3/think.mp3")]
 
 

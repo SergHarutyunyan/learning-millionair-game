@@ -5,10 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WhoWantsToBeAMillioner"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1000" ResizeMode="NoResize">
+        Title="MainWindow" Height="800" Width="1000" ResizeMode="NoResize"
+        Loaded="Window_Loaded">
     <Window.Background>
-        <ImageBrush ImageSource="C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\WhoWantsToBeAMillioner\Images\images.jfif"/>
+        <ImageBrush ImageSource="Images\images.JPEG"/>
     </Window.Background>
+    
     <Window.Resources>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Background" Value="#373737" />
@@ -62,6 +64,7 @@
 
             <Button Click="Play_Click"   Content="New Game" FontFamily="New Times Roman" FontSize="22" Grid.Row="1" x:Name="Play" Margin="379,136,397,194"/>
             <Button Click="Quit_Click"   Content="Exit" FontFamily="New Times Roman" FontSize="22" Grid.Row="1" x:Name="Quit" Margin="379,206,397,124"/>
+            <MediaElement Visibility="Hidden" Height="120" Margin="10,10,108,0" LoadedBehavior="Manual" Name="mediaElement1" VerticalAlignment="Top" />
         </Grid>
 
     </StackPanel>

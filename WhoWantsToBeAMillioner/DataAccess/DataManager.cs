@@ -15,7 +15,9 @@ namespace DataAccess
     public class DataManager : DbContext
     {
         static string ConnString = ConfigurationManager.ConnectionStrings["DataManager"].ConnectionString;
-        static List<int> categoryList = new List<int>();
+        List<Categories> categoryList = new List<Categories>();
+
+
 
         public void GetNextQuestion(int category)
         {
@@ -43,12 +45,16 @@ namespace DataAccess
                     Questions.VariantD = Rdr.GetString(5);
                     Questions.Answer = Rdr.GetByte(6);
                 }
+                else
+                {
+                    categoryList.Clear();
+                }
 
             }
         }
 
 
-        public List<int> getCategoryList()
+        public List<Categories> GetCategoryList()
         {
             using (SqlConnection connection = new SqlConnection(ConnString))
             {
@@ -60,7 +66,12 @@ namespace DataAccess
 
                 while (Rdr.Read())
                 {
-                    categoryList.Add(Rdr.GetInt32(0));
+                    Categories category = new Categories();
+                    category.Id = Rdr.GetInt32(0);
+                    category.Price = Rdr.GetInt32(1);
+                    category.IsPrimary = Rdr.GetBoolean(2);
+
+                    categoryList.Add(category);
                 }
 
                 return categoryList;
@@ -69,7 +80,53 @@ namespace DataAccess
         }
 
 
+        public int CheckAnswer(int id, int answer)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnString))
+            {
+                SqlCommand command = new SqlCommand("CheckAnswer", connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
 
+
+                SqlParameter firstParameter = new SqlParameter();
+                firstParameter.ParameterName = "@answer";
+                firstParameter.Value = answer;
+                command.Parameters.Add(firstParameter);
+
+                SqlParameter secondParameter = new SqlParameter();
+                secondParameter.ParameterName = "@id";
+                secondParameter.Value = id;
+                command.Parameters.Add(secondParameter);
+
+                connection.Open();
+                int result = (int)command.ExecuteScalar();
+
+
+                return result;
+            }
+        }
+
+
+        public int GetAnswer(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnString))
+            {
+                SqlCommand command = new SqlCommand("GetAnswer", connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+                SqlParameter secondParameter = new SqlParameter();
+                secondParameter.ParameterName = "@id";
+                secondParameter.Value = id;
+                command.Parameters.Add(secondParameter);
+
+                connection.Open();
+                int result = (int)command.ExecuteScalar();
+
+
+                return result;
+            }
+        }
 
     }
 }

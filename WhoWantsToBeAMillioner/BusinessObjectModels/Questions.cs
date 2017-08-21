@@ -10,7 +10,7 @@ namespace BusinessObjectModels
 {
    
     [Table("Questions")]
-    public class Questions
+    public static class Questions
     {
 
         [Key]
