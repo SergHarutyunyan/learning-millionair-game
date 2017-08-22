@@ -62,6 +62,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="GameOver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GamePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -73,6 +77,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameOver.xaml.cs">
+      <DependentUpon>GameOver.xaml</DependentUpon>
     </Compile>
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
@@ -113,10 +120,26 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\images.JPEG" />
-    <Content Include="Mp3\Correct.mp3" />
-    <Content Include="Mp3\Loosing.mp3" />
-    <Content Include="Mp3\millionaire.mp3" />
-    <Content Include="Mp3\Think.mp3" />
+    <Resource Include="Images\Help50.jpg" />
+    <Resource Include="Images\HelpQuestionChange.jpg" />
+    <Resource Include="Images\Classic5050.png" />
+    <Resource Include="Images\Classic5050used.png" />
+    <Content Include="Mp3\EndGame.mp3" />
+    <Content Include="Mp3\Help50.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mp3\Correct.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mp3\Loosing.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mp3\millionaire.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mp3\Think.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Images\Status_3.png" />
     <Resource Include="Images\Status.png" />
     <Resource Include="Images\Wiki-background.png" />

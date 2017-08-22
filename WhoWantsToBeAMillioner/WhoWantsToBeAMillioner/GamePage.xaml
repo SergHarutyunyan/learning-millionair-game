@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WhoWantsToBeAMillioner"
         mc:Ignorable="d"
-        Title="GamePage" Height="800" Width="1000" ResizeMode="NoResize"
+        Title="Who Wants To Be A Millionaire" Height="800" Width="1000" ResizeMode="NoResize"
         Loaded="Window_Loaded">
 
     <Window.Resources>
@@ -84,17 +84,24 @@
     </Window.Background>
 
     <StackPanel>
-
-
         <Grid Height="770">
-         
-
             <Grid.RowDefinitions>
                 <RowDefinition Height="35*"/>
                 <RowDefinition Height="274*"/>
                 <RowDefinition Height="180*"/>
                 <RowDefinition Height="264*"/>
             </Grid.RowDefinitions>
+
+            <Button Grid.Row="0" Visibility="Visible" Click="Classic5050_Click" x:Name="Classic5050" HorizontalAlignment="Right" BorderThickness="0" Foreground="Black" Width="75" Margin="0,1,45,0">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images\Classic5050.png"/>
+                </Button.Background>
+            </Button>
+            <Button Grid.Row="0" Visibility="Hidden" x:Name="Classic5050used" HorizontalAlignment="Right" BorderThickness="0" Foreground="Black" Width="75" Margin="0,1,45,0">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images\Classic5050used.png"/>
+                </Button.Background>
+            </Button>
 
             <Button Grid.Row="0" Style="{StaticResource StatusStyle}" Click="Status_Click"   x:Name="Status" Content="" HorizontalAlignment="Right" Foreground="Black" Width="35" Margin="0,1">
                 <Button.Background>
@@ -104,9 +111,12 @@
             <Button  Grid.Row="0" Style="{StaticResource WindowButtonStyle}" Click="Quit_Click"     x:Name="Quit" Content="r" HorizontalAlignment="Left" Width="35" FontSize="28" Margin="0,2,0,0" />
             <Image Source="Images\Wiki-background.png"  Width="400" Height="280" Panel.ZIndex="1" Margin="296,14,296,26" Grid.RowSpan="2"/>
 
-            <MediaElement Visibility="Hidden" Height="120" Margin="10,10,108,0" LoadedBehavior="Manual" Name="GamePlaySound" VerticalAlignment="Top" />
+            <MediaElement Visibility="Hidden" LoadedBehavior="Manual" Name="Think"    Source="Mp3\Think.mp3"/>
+            <MediaElement Visibility="Hidden" LoadedBehavior="Manual" Name="Correct"  Source="Mp3\Correct.mp3"/>
+            <MediaElement Visibility="Hidden" LoadedBehavior="Manual" Name="Loose"    Source="Mp3\Loosing.mp3"/>
+            <MediaElement Visibility="Hidden" LoadedBehavior="Manual" Name="Help50"   Source="Mp3\Help50.mp3"/>
 
-            <TextBox x:Name="QuestionTexBox" Cursor="Arrow" IsReadOnly="True" Grid.Row="2" BorderThickness="4" BorderBrush="LightBlue" TextWrapping="Wrap" Width="670" Height="120" Background="Black" Foreground="White" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="158,30,154,34">
+            <TextBox x:Name="QuestionTexBox" Cursor="Hand" IsReadOnly="True" Grid.Row="2" BorderThickness="4" BorderBrush="LightBlue" TextWrapping="Wrap" Width="670" Height="120" Background="Black" Foreground="White" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="158,30,154,34">
 
                 <TextBox.Resources>
                     <Style TargetType="{x:Type Border}">
@@ -130,7 +140,7 @@
 
                 <!-- ***************** BUTTON A **************** -->
 
-                <Button x:Name="A" x:Uid="1" Foreground="White" Background="Black" BorderThickness="4" BorderBrush="LightBlue" FontSize="30" Click="A_Click"  Grid.Column="0" Grid.Row="0" Width="350" Margin="0,0,0,10" HorizontalAlignment="Center" >
+                <Button x:Name="A" x:Uid="1" Cursor="ArrowCD" Foreground="White" Background="Black" BorderThickness="4" BorderBrush="LightBlue" FontSize="30" Click="A_Click"  Grid.Column="0" Grid.Row="0" Width="350" Margin="0,0,0,10" HorizontalAlignment="Center" >
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="60"/>
@@ -141,8 +151,8 @@
 
                 <!-- ***************** BUTTON B **************** -->
 
-            
-                <Button x:Name="B" x:Uid="2" Click="B_Click" Foreground="White" Background="Black"  BorderThickness="4" BorderBrush="LightBlue" Grid.Column="1" Grid.Row="0" Width="350" Margin="0,0,0,10"  FontSize="30" HorizontalAlignment="Center" >
+
+                <Button x:Name="B" x:Uid="2" Cursor="Hand" Click="B_Click" Foreground="White" Background="Black"  BorderThickness="4" BorderBrush="LightBlue" Grid.Column="1" Grid.Row="0" Width="350" Margin="0,0,0,10"  FontSize="30" HorizontalAlignment="Center" >
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="60"/>
@@ -154,7 +164,7 @@
 
                 <!-- ***************** BUTTON C **************** -->
 
-                <Button x:Name="C" x:Uid="3" Click="C_Click" Foreground="White" Background="Black"  BorderThickness="4" BorderBrush="LightBlue" Grid.Column="0" Grid.Row="1" Width="350" Margin="0,5,0,5"   FontSize="30" HorizontalAlignment="Center" >
+                <Button x:Name="C" x:Uid="3" Cursor="Hand" Click="C_Click" Foreground="White" Background="Black"  BorderThickness="4" BorderBrush="LightBlue" Grid.Column="0" Grid.Row="1" Width="350" Margin="0,5,0,5"   FontSize="30" HorizontalAlignment="Center" >
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="60"/>
@@ -165,8 +175,8 @@
 
                 <!-- ***************** BUTTON D **************** -->
 
-               
-                <Button x:Name="D" x:Uid="4" Click="D_Click" Foreground="White" Background="Black"   BorderThickness="4" BorderBrush="LightBlue" Grid.Column="1" Grid.Row="1" Width="350" Margin="0,5,0,5"   FontSize="30" HorizontalAlignment="Center" >
+
+                <Button x:Name="D" x:Uid="4" Cursor="Hand" Click="D_Click" Foreground="White" Background="Black"   BorderThickness="4" BorderBrush="LightBlue" Grid.Column="1" Grid.Row="1" Width="350" Margin="0,5,0,5"   FontSize="30" HorizontalAlignment="Center" >
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="60"/>

@@ -25,7 +25,7 @@ namespace WhoWantsToBeAMillioner
         DataManager dataManager = new DataManager();
         static int answer = 0;
         static bool filled = false;
-        static int FirstAnswer = 0;
+        static bool classic5050Clicked = false;
         static int price = 0;
 
         public GamePage()
@@ -33,13 +33,13 @@ namespace WhoWantsToBeAMillioner
             InitializeComponent();
         }
 
-        private void soundPlay(MediaElement M, string uri)
+        private void SoundPlay(MediaElement M, string uri)
         {
             M.Source = new Uri(uri);
             M.Play();
         }
 
-        private void soundStop(MediaElement M)
+        private void SoundStop(MediaElement M)
         {
             M.Stop();
         }
@@ -55,7 +55,7 @@ namespace WhoWantsToBeAMillioner
             MainWindow MW = new MainWindow();
             MW.Show();
             this.Hide();
-            soundStop(GamePlaySound);
+            SoundStop(Think);
 
         }
 
@@ -67,7 +67,7 @@ namespace WhoWantsToBeAMillioner
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
-            soundPlay(GamePlaySound, @"C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\WhoWantsToBeAMillioner\Mp3\Think.mp3");
+            Think.Play();
 
             categoryList = dataManager.GetCategoryList();
             dataManager.GetNextQuestion(categoryList.FirstOrDefault().Id);
@@ -76,11 +76,45 @@ namespace WhoWantsToBeAMillioner
 
         }
 
+
+        private void Blinking(Button winning, Button selected, bool isTrue)
+        {
+            AnswerSound(isTrue);
+            if (winning.Content == selected.Content)
+            {
+                selected.Background = Brushes.Green;
+                WaitNSeconds(0.2);
+                selected.Background = Brushes.DarkOrange;
+                WaitNSeconds(0.2);
+                selected.Background = Brushes.Green;
+                WaitNSeconds(0.2);
+                selected.Background = Brushes.DarkOrange;
+                WaitNSeconds(0.2);
+                selected.Background = Brushes.Green;
+                WaitNSeconds(1);
+            }
+            else
+            {
+                winning.Background = Brushes.Green;
+                WaitNSeconds(0.2);
+                winning.Background = Brushes.Black;
+                WaitNSeconds(0.2);
+                winning.Background = Brushes.Green;
+                WaitNSeconds(0.2);
+                winning.Background = Brushes.Black;
+                WaitNSeconds(0.2);
+                winning.Background = Brushes.Green;
+                WaitNSeconds(1);
+            }
+
+        }
+
         private void FillBoxes()
         {
+
             MakeNotClickable();
 
-            if(filled)
+            if (filled)
             {
                 QuestionTexBox.Text = "";
                 A.Content = "";
@@ -102,9 +136,7 @@ namespace WhoWantsToBeAMillioner
             answer = Questions.Answer;
             filled = true;
             MakeClickable();
-            soundPlay(GamePlaySound, @"C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\WhoWantsToBeAMillioner\Mp3\Think.mp3");
-
-
+            Think.Play();
 
         }
 
@@ -114,7 +146,9 @@ namespace WhoWantsToBeAMillioner
             B.IsHitTestVisible = true;
             C.IsHitTestVisible = true;
             D.IsHitTestVisible = true;
-            button.Background = Brushes.Black;        
+            if(!classic5050Clicked)
+                Classic5050.IsHitTestVisible = true;
+            button.Background = Brushes.Black;
         }
 
         private void MakeClickable()
@@ -123,7 +157,8 @@ namespace WhoWantsToBeAMillioner
             B.IsHitTestVisible = true;
             C.IsHitTestVisible = true;
             D.IsHitTestVisible = true;
-
+            if (!classic5050Clicked)
+                Classic5050.IsHitTestVisible = true;
         }
 
         private void MakeNotClickable()
@@ -132,26 +167,19 @@ namespace WhoWantsToBeAMillioner
             B.IsHitTestVisible = false;
             C.IsHitTestVisible = false;
             D.IsHitTestVisible = false;
-
+            Classic5050.IsHitTestVisible = false;
         }
 
         private void AnswerSound(bool correct)
         {
-            if (correct)
-            {
-                soundStop(GamePlaySound);
-                soundPlay(GamePlaySound, @"C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\WhoWantsToBeAMillioner\Mp3\Correct.mp3");
-            }
-            else
-            {
-                soundStop(GamePlaySound);
-                soundPlay(GamePlaySound, @"C:\Users\Sergey.Harutyunyan\Documents\GIT\MillionerWPF\WhoWantsToBeAMillioner\WhoWantsToBeAMillioner\Mp3\Loosing.mp3");
-            }
+            Think.Stop();
+
+            if (correct) { Correct.Stop(); Correct.Play();  }
+            else Loose.Play();           
         }
 
-        private void WaitNSeconds(int segundos)
+        private void WaitNSeconds(double segundos)
         {
-            if (segundos < 1) return;
             DateTime _desired = DateTime.Now.AddSeconds(segundos);
             while (DateTime.Now < _desired)
             {
@@ -167,21 +195,22 @@ namespace WhoWantsToBeAMillioner
 
         }
 
-        private void showAnswer()
+        private void ShowAnswer(Button selected, bool isTrue)
         {
+
             switch (answer)
             {
                 case 1:
-                    A.Background = Brushes.Green;
+                    Blinking(A, selected, isTrue);
                     break;
                 case 2:
-                    B.Background = Brushes.Green;
+                    Blinking(B, selected, isTrue);
                     break;
                 case 3:
-                    C.Background = Brushes.Green;
+                    Blinking(C, selected, isTrue);
                     break;
                 case 4:
-                    D.Background = Brushes.Green;
+                    Blinking(D, selected, isTrue);
                     break;
             }
         }
@@ -190,37 +219,37 @@ namespace WhoWantsToBeAMillioner
         private void ClickHandling(Button button)
         {
             WaitingAnswer(button);
-            showAnswer();
-
 
             if (answer == Convert.ToInt32(button.Uid))
             {
                 price = categoryList.FirstOrDefault().Price;
-
-                AnswerSound(true);
-                WaitNSeconds(3);
+                ShowAnswer(button, true);
+                WaitNSeconds(2);
                 CleanUpButtons(button);
                 categoryList.RemoveAt(0);
                 dataManager.GetNextQuestion(categoryList.FirstOrDefault().Id);
-               
+
                 if (categoryList.Count != 0)
-                {                   
-                    FillBoxes();                  
+                {
+                    FillBoxes();
                 }
                 else
                 {
-                    MessageBox.Show("You have won " + price + "$");
-                    GoBack();                  
+                    GameOver GO = new GameOver();
+                    GO.PriceBox.Text = "Winning price: " + price + "$";
+                    this.Close();
+                    GO.Show();
                 }
-
-                
             }
             else
             {
-                AnswerSound(false);
+                ShowAnswer(button, false);
                 WaitNSeconds(3);
-                MessageBox.Show("You have won " + price + "$");
-                GoBack();
+                GameOver GO = new GameOver();
+                GO.PriceBox.Text = "Winning price: " + price + "$";
+                this.Close();
+                GO.Show();
+
             }
         }
 
@@ -244,5 +273,39 @@ namespace WhoWantsToBeAMillioner
             ClickHandling(D);
         }
 
+        Random rand = new Random();
+        static int previousRandom = -1;
+
+        private int GetUnnecessaryVariant()
+        {
+            int randNumber = rand.Next(1, 4);
+
+            if (answer != randNumber && previousRandom != randNumber) { previousRandom = randNumber; return randNumber; }
+            else return GetUnnecessaryVariant();
+        }
+
+
+        private void Classic5050_Click(object sender, RoutedEventArgs e)
+        {
+            classic5050Clicked = true;
+            Think.Stop();
+            Help50.Play();
+
+            Classic5050.Visibility = Visibility.Hidden;
+            Classic5050used.Visibility = Visibility.Visible;
+            Classic5050used.IsHitTestVisible = false;
+         
+            int firstVariant = GetUnnecessaryVariant();
+            int secondVariant = GetUnnecessaryVariant();
+
+            if (firstVariant == 1 || secondVariant == 1) { A.Content = ""; A.IsHitTestVisible = false; }
+            if (firstVariant == 2 || secondVariant == 2) { B.Content = ""; B.IsHitTestVisible = false; }
+            if (firstVariant == 3 || secondVariant == 3) { C.Content = ""; C.IsHitTestVisible = false; }
+            if (firstVariant == 4 || secondVariant == 4) { D.Content = ""; D.IsHitTestVisible = false; }
+
+            WaitNSeconds(2);
+            Think.Play();
+
+        }
     }
 }
