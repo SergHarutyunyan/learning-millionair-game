@@ -140,7 +140,7 @@
 
                 <!-- ***************** BUTTON A **************** -->
 
-                <Button x:Name="A" x:Uid="1" Cursor="ArrowCD" Foreground="White" Background="Black" BorderThickness="4" BorderBrush="LightBlue" FontSize="30" Click="A_Click"  Grid.Column="0" Grid.Row="0" Width="350" Margin="0,0,0,10" HorizontalAlignment="Center" >
+                <Button x:Name="A" Cursor="ArrowCD" Foreground="White" Background="Black" BorderThickness="4" BorderBrush="LightBlue" FontSize="30" Click="A_Click"  Grid.Column="0" Grid.Row="0" Width="350" Margin="0,0,0,10" HorizontalAlignment="Center" >
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="60"/>
@@ -152,7 +152,7 @@
                 <!-- ***************** BUTTON B **************** -->
 
 
-                <Button x:Name="B" x:Uid="2" Cursor="Hand" Click="B_Click" Foreground="White" Background="Black"  BorderThickness="4" BorderBrush="LightBlue" Grid.Column="1" Grid.Row="0" Width="350" Margin="0,0,0,10"  FontSize="30" HorizontalAlignment="Center" >
+                <Button x:Name="B" Cursor="Hand" Click="B_Click" Foreground="White" Background="Black"  BorderThickness="4" BorderBrush="LightBlue" Grid.Column="1" Grid.Row="0" Width="350" Margin="0,0,0,10"  FontSize="30" HorizontalAlignment="Center" >
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="60"/>
@@ -164,7 +164,7 @@
 
                 <!-- ***************** BUTTON C **************** -->
 
-                <Button x:Name="C" x:Uid="3" Cursor="Hand" Click="C_Click" Foreground="White" Background="Black"  BorderThickness="4" BorderBrush="LightBlue" Grid.Column="0" Grid.Row="1" Width="350" Margin="0,5,0,5"   FontSize="30" HorizontalAlignment="Center" >
+                <Button x:Name="C"  Cursor="Hand" Click="C_Click" Foreground="White" Background="Black"  BorderThickness="4" BorderBrush="LightBlue" Grid.Column="0" Grid.Row="1" Width="350" Margin="0,5,0,5"   FontSize="30" HorizontalAlignment="Center" >
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="60"/>
@@ -176,7 +176,7 @@
                 <!-- ***************** BUTTON D **************** -->
 
 
-                <Button x:Name="D" x:Uid="4" Cursor="Hand" Click="D_Click" Foreground="White" Background="Black"   BorderThickness="4" BorderBrush="LightBlue" Grid.Column="1" Grid.Row="1" Width="350" Margin="0,5,0,5"   FontSize="30" HorizontalAlignment="Center" >
+                <Button x:Name="D" Cursor="Hand" Click="D_Click" Foreground="White" Background="Black"   BorderThickness="4" BorderBrush="LightBlue" Grid.Column="1" Grid.Row="1" Width="350" Margin="0,5,0,5"   FontSize="30" HorizontalAlignment="Center" >
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="60"/>

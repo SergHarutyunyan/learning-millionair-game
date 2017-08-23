@@ -80,31 +80,31 @@ namespace DataAccess
         }
 
 
-        public int CheckAnswer(int id, int answer)
-        {
-            using (SqlConnection connection = new SqlConnection(ConnString))
-            {
-                SqlCommand command = new SqlCommand("CheckAnswer", connection);
-                command.CommandType = System.Data.CommandType.StoredProcedure;
+        //public int CheckAnswer(int id, int answer)
+        //{
+        //    using (SqlConnection connection = new SqlConnection(ConnString))
+        //    {
+        //        SqlCommand command = new SqlCommand("CheckAnswer", connection);
+        //        command.CommandType = System.Data.CommandType.StoredProcedure;
 
 
-                SqlParameter firstParameter = new SqlParameter();
-                firstParameter.ParameterName = "@answer";
-                firstParameter.Value = answer;
-                command.Parameters.Add(firstParameter);
+        //        SqlParameter firstParameter = new SqlParameter();
+        //        firstParameter.ParameterName = "@answer";
+        //        firstParameter.Value = answer;
+        //        command.Parameters.Add(firstParameter);
 
-                SqlParameter secondParameter = new SqlParameter();
-                secondParameter.ParameterName = "@id";
-                secondParameter.Value = id;
-                command.Parameters.Add(secondParameter);
+        //        SqlParameter secondParameter = new SqlParameter();
+        //        secondParameter.ParameterName = "@id";
+        //        secondParameter.Value = id;
+        //        command.Parameters.Add(secondParameter);
 
-                connection.Open();
-                int result = (int)command.ExecuteScalar();
+        //        connection.Open();
+        //        int result = (int)command.ExecuteScalar();
 
 
-                return result;
-            }
-        }
+        //        return result;
+        //    }
+        //}
 
 
         public int GetAnswer(int id)

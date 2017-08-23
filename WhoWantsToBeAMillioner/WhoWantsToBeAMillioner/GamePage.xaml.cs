@@ -33,18 +33,6 @@ namespace WhoWantsToBeAMillioner
             InitializeComponent();
         }
 
-        private void SoundPlay(MediaElement M, string uri)
-        {
-            M.Source = new Uri(uri);
-            M.Play();
-        }
-
-        private void SoundStop(MediaElement M)
-        {
-            M.Stop();
-        }
-
-
         private void Status_Click(object sender, RoutedEventArgs e)
         {
 
@@ -55,7 +43,7 @@ namespace WhoWantsToBeAMillioner
             MainWindow MW = new MainWindow();
             MW.Show();
             this.Hide();
-            SoundStop(Think);
+            Think.Stop();
 
         }
 
@@ -136,7 +124,6 @@ namespace WhoWantsToBeAMillioner
             answer = Questions.Answer;
             filled = true;
             MakeClickable();
-            Think.Play();
 
         }
 
@@ -216,11 +203,11 @@ namespace WhoWantsToBeAMillioner
         }
 
 
-        private void ClickHandling(Button button)
+        private void ClickHandling(Button button, byte answerId)
         {
             WaitingAnswer(button);
 
-            if (answer == Convert.ToInt32(button.Uid))
+            if (answer == answerId)
             {
                 price = categoryList.FirstOrDefault().Price;
                 ShowAnswer(button, true);
@@ -255,22 +242,22 @@ namespace WhoWantsToBeAMillioner
 
         private void A_Click(object sender, RoutedEventArgs e)
         {
-            ClickHandling(A);
+            ClickHandling(A,1);
         }
 
         private void B_Click(object sender, RoutedEventArgs e)
         {
-            ClickHandling(B);
+            ClickHandling(B,2);
         }
 
         private void C_Click(object sender, RoutedEventArgs e)
         {
-            ClickHandling(C);
+            ClickHandling(C,3);
         }
 
         private void D_Click(object sender, RoutedEventArgs e)
         {
-            ClickHandling(D);
+            ClickHandling(D,4);
         }
 
         Random rand = new Random();
